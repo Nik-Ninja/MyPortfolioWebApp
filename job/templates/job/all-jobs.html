@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Nikita's Jobs listed</title>
+     <style>
+        nav{
+            background-color:rgb(240, 240, 240);
+        }
+        ul{
+            list-style-type:none;
+            float:right;
+            margin:0;
+            padding:0;
+        }
+
+        li{
+            display: inline;
+        }
+        div.card{
+            width:40%;
+            border: 3px solid blue;
+            text-align:center;
+        }
+        .myIntro{
+             text-align:center;
+        }
+        img.card-image{
+            height: 300;
+            width: 300;
+        }
+        footer{
+            background-color:rgb(180, 180, 180);
+        }
+</style>
+</head>
+<body>
+<header>
+    <nav>
+        <span>Nikita Janbandhu</span>
+        <ul>
+            <li><a href="https://github.com/Nik-Ninja">Github</a></li>
+            <li><a href="{% url 'home' %}">Blogs</a></li>
+        </ul>
+    </nav>
+</header>
+<div class="container">
+
+    <h1>Welcome to Nikita's latest Jobs</h1>
+    <br />
+
+    <hr />
+
+    {% for job in jobs.all %}
+    <a href="#"><h3>{{ job.title }}</h3></a>
+    {{ job.pub_date }}
+    <br />
+    <img src="{{ job.job_img.url }}" height=200 width=200/>
+    <br />
+    <p>{{ job.summary }}</p>
+    {% endfor %}
+
+  </div>
+
+
+<footer>
+    <div class="container text-center">
+      <p>© Nik J </p>
+    </div>
+  </footer>
+</body>
+</html>

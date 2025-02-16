@@ -1,0 +1,67 @@
+<html>
+<head>
+    <style>
+        nav{
+            background-color:rgb(240, 240, 240);
+        }
+        ul{
+            list-style-type:none;
+            float:right;
+            margin:0;
+            padding:0;
+        }
+
+        li{
+            display: inline;
+        }
+        div.card{
+            width:40%;
+            border: 3px solid blue;
+            text-align:center;
+        }
+        .myIntro{
+             text-align:center;
+        }
+        img.card-image{
+            height: 300;
+            width: 300;
+        }
+        footer{
+            background-color:rgb(180, 180, 180);
+        }
+</style>
+</head>
+<body>
+<header>
+    <nav>
+        <span>Nikita Janbandhu</span>
+        <ul>
+            <li><a href="https://github.com/Nik-Ninja">Github</a></li>
+            <li><a href="{% url 'all-jobs' %}">Jobs</a></li>
+        </ul>
+    </nav>
+</header>
+<div class="myIntro">
+    <h1>Hello, folks!!</h1>
+    <h2>This is my Portfolio</h2>
+</div>
+
+
+{% for blog in blogs.all %}
+    <div class="card">
+        <img class="card-image" src="{{ blog.image.url }}">
+
+        <br>
+        <p>{{ blog.full_summary }}</p>
+
+    </div>
+ <br>
+{% endfor %}
+
+ <footer>
+    <div class="container text-center">
+      <p>© Nik J </p>
+    </div>
+  </footer>
+</body>
+</html>
